@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>apply_cursor</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link href="../assets/default.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/handler_page.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
+		<meta name="keywords" content="apply_cursor, TerminalColors" />
+		<script type="text/javascript" src="../assets/run_helpscript.js"></script>
+		<link href="../../" id="HelpBookRoot" />
+	</head>
+
+	<body>
+		<div id="navi-bar">
+			<div class="edit-script-link">
+			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			</div>
+			<div class="left-contents">
+			<div class="to-root">
+			<a href="../index.html">TerminalColors Reference </a>
+			</div>
+			</div>
+		</div>
+		<div id="contents">
+		<div class="elementTitle">
+<a id="apply_cursor" name="apply_cursor">apply_cursor</a>
+</div>
+<p class="sourceCode">
+<span class="userDefine">apply_cursor</span><span class="normal">(</span><span class="userDefine">term_window</span><span class="normal">)</span>
+<a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
+<img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
+</a></p>
+<p><a href="set_cursor.html">set_cursor</a> で設定したカーソルのカラー設定を既に開かれているターミナルウィンドウに適用します。実行する前に、<a href="help:openbook='TerminalCommander Help'" target="_top">TerminalCommander</a> によって、ターミナルウィンドウが開かれている必要があります。</p>
+<div class="subHeading">
+Parameters
+</div>
+<ul>
+<li>term_window (reference) : ターミナルウィンドウ</li>
+</ul>
+<div class="subHeading">
+Result
+</div>
+<p>boolean : カーソルのカラー設定の適用に成功したら true。<a href="set_cursor.html">set_cursor</a> のa_bool に false が与えられていたり、そもそもカラー設定が行われていない場合は false。</p>
+		</div>
+	</body>
+
+</html>
