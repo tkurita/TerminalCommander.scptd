@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>set_cursor</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link href="../assets/default.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/handler_page.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
+		<meta name="keywords" content="set_cursor" />
+		<script type="text/javascript" src="../assets/run_helpscript.js"></script>
+	</head>
+
+	<body>
+		<div style="visibility:hidden"><a href="../../" id="HelpBookRoot"></a></div>
+		<div id="smartheader">
+			<table width="95%" border="0" cellspacing="2" cellpadding="0">
+				<tr>
+					<td align="left"><a href="../contents.html">TerminalColors Reference </a></td>
+					<td align="right"><a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a></td>
+				</tr>
+			</table>
+		</div>
+<div class="elementTitle">
+<a id="set_cursor" name="set_cursor">set_cursor</a>
+</div>
+<p class="sourceCode">
+<span class="userDefine">set_cursor</span>(<span class="userDefine">a_rgb</span>, <span class="userDefine">a_bool</span>)
+<a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
+<img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
+</a></p>
+<p>カーソルカラーを設定します。</p>
+<p>新規ターミナルウィンドウを開くとき、もしくは <a href="apply_cursor.html">apply_cursor</a> 、<a href="apply.html">apply</a> が実行されるまで、設定はターミナルウィンドウに適用されません。</p>
+<div class="subHeading">
+Parameters
+</div>
+<ul>
+<li>a_rgb (list) : RGB 色設定</li>
+<li>a_bool : false を設定すると、a_rgb は使われませんが、値は保持します。</li>
+</ul>
+<div class="subHeading">
+Result
+</div>
+<p>script object : me</p>
+	</body>
+
+</html>

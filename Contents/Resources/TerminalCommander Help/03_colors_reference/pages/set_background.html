@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>set_background</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link href="../assets/default.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/handler_page.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
+		<meta name="keywords" content="set_background" />
+		<script type="text/javascript" src="../assets/run_helpscript.js"></script>
+	</head>
+
+	<body>
+		<div style="visibility:hidden"><a href="../../" id="HelpBookRoot"></a></div>
+		<div id="smartheader">
+			<table width="95%" border="0" cellspacing="2" cellpadding="0">
+				<tr>
+					<td align="left"><a href="../contents.html">TerminalColors Reference </a></td>
+					<td align="right"><a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a></td>
+				</tr>
+			</table>
+		</div>
+<div class="elementTitle">
+<a id="set_background" name="set_background">set_background</a>
+</div>
+<p class="sourceCode">
+<span class="userDefine">set_background</span>(<span class="userDefine">a_rgb</span>, |<span class="userDefine">opaque</span>|, <span class="userDefine">a_bool</span>)
+<a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
+<img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
+</a></p>
+<p>ウィンドウの背景のカラーおよび透明度の設定を行います。</p>
+<p>新規ターミナルウィンドウを開くとき、もしくは <a href="apply_background.html">apply_background</a> 、<a href="apply.html">apply</a> が実行されるまで、設定はターミナルウィンドウに適用されません。</p>
+<ul>
+<li>0 -- 完全に透明</li>
+<li>65535 -- 完全に不透明</li>
+</ul>
+<div class="subHeading">
+Parameters
+</div>
+<ul>
+<li>a_rgb (list) -- RGB 色設定</li>
+<li>opaque (integer) -- ターミナルウィンドウの透明度。0 から 65535 の範囲の数値を与えます。</li>
+<li>a_bool -- false を設定すると、a_rgb は使われませんが、値は保持します。</li>
+</ul>
+<div class="subHeading">
+Result
+</div>
+<p>script object : me</p>
+	</body>
+
+</html>
