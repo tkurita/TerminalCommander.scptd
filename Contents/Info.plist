@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleGetInfoString</key>
-	<string>2.2.2 copyright 2003-2013, Tetsuro KURITA</string>
+	<string>2.2.3 copyright 2003-2014, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>TerminalCommander Help</string>
 	<key>CFBundleHelpBookName</key>
@@ -11,11 +11,11 @@
 	<key>CFBundleIdentifier</key>
 	<string>Scriptfactory.TerminalCommander</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2.2</string>
+	<string>2.2.3b1</string>
 	<key>CFBundleVersion</key>
-	<string>2.2.2</string>
+	<string>2.2.3</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>copyright 2003-2013, Tetsuro KURITA</string>
+	<string>copyright 2003-2014, Tetsuro KURITA</string>
 	<key>WindowState</key>
 	<dict>
 		<key>dividerCollapsed</key>
@@ -25,9 +25,9 @@
 		<key>name</key>
 		<string>ScriptWindowState</string>
 		<key>positionOfDivider</key>
-		<real>526</real>
+		<real>544</real>
 		<key>savedFrame</key>
-		<string>601 128 706 749 0 0 1440 878 </string>
+		<string>305 129 706 749 0 0 1440 878 </string>
 		<key>selectedTabView</key>
 		<string>event log</string>
 	</dict>
