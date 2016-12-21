@@ -8,16 +8,19 @@
 		
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<link href="assets/default.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
 		<meta name="keywords" content="TerminalCommander, AppleScript" />
-		<script type="text/javascript" src="assets/run_helpscript.js"></script>
+		<script type="text/javascript" src="assets-helpbook/run_helpscript.js"></script>
 		<script type="text/javascript" src="assets/navibar-jump.js"></script>
-		<link href="../" id="HelpBookRoot" />
+        <link id="helpviewer-handler-helper" href="assets-helpbook/helpviewer-handler-helper.scpt" />
+        <script type="text/javascript" src="assets-helpbook/helpviewer-handler-enable.js"></script>
+        <link href="../" id="HelpBookRoot" />
 	</head>
 
 	<body>
 		<div id="navi-bar">
 			<div class="edit-script-link">
-				<a onclick="return runHelpScriptWithBundleRoot(this)" href="assets/editScript.scpt">Edit Script</a>
+				<a onclick="return runHelpScriptWithBundleRoot(this)" href="assets-helpbook/editScript.scpt">Edit Script</a>
 			</div>
 			<div class="left-contents">
 			<div class="to-root">
@@ -130,8 +133,8 @@ Others
 		<div id="contents">
 		<h1>TerminalCommander Reference </h1>
 <ul>
-<li>Version : 3.0</li>
-<li>Author : Tetsuro KURITA <a href="mailto:tkurita@mac.com">tkurita@mac.com</a></li>
+<li>Version : 3.0.2</li>
+<li>Author : Tetsuro KURITA <a href="mailto:scriptfactory@mac.com">scriptfactory@mac.com</a></li>
 </ul>
 <h2 id="Constructors">Constructors</h2>
 <h3 id="make"><a href="pages/make.html">make</a></h3>
@@ -156,7 +159,7 @@ Others
 <h3 id="set_settings_name"><a href="pages/set_settings_name.html">set_settings_name</a></h3>
 <p>新規ターミナルで使用する設定セット名を設定します。</p>
 <h3 id="set_custom_title"><a href="pages/set_custom_title.html">set_custom_title</a></h3>
-<p>新しく作るターミナルウィンドウに設定されるカスタムタイトルを設定します。値が設定されると、新たに開かれるターミナルウィンドウのカスタムタイトルとして設定されます。設定しなければ、ターミナルでの設定が引き継がれます。また、カスタムタイトル が設定されると、<a href="pages/do.html">do</a>, <a href="pages/do_with.html">do_with</a> はターミナルの参照が見つからないときは、同じ カスタムタイトル のターミナルウィンドウを探します。</p>
+<p>新しく作るターミナルウィンドウに設定されるカスタムタイトルを設定します。値が設定されると、新たに開かれるターミナルウィンドウのカスタムタイトルとして設定されます。設定しなければ、ターミナルでの設定が引き継がれます。カスタムタイトル が設定されると、<a href="pages/do.html">do</a>, <a href="pages/do_with.html">do_with</a> はttyデバイス名とタスタムタイトルの両方が一致したターミナルを探します。見つからない場合は、同じカスタムタイトルのターミナルウィンドウを探します。</p>
 <h3 id="custom_title"><a href="pages/custom_title.html">custom_title</a></h3>
 <p>set_custom_title によって設定した、カスタムタイトルを返します。</p>
 <h3 id="set_execution_string"><a href="pages/set_execution_string.html">set_execution_string</a></h3>

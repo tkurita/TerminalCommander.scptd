@@ -11,13 +11,15 @@
 		<link href="../assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
 		<meta name="keywords" content="set_custom_title, TerminalCommander" />
 		<script type="text/javascript" src="../assets/run_helpscript.js"></script>
+        <link id="helpviewer-handler-helper" href="../assets-helpbook/helpviewer-handler-helper.scpt" />
+        <script type="text/javascript" src="../assets-helpbook/helpviewer-handler-enable.js"></script>
 		<link href="../../" id="HelpBookRoot" />
 	</head>
 
 	<body>
 		<div id="navi-bar">
 			<div class="edit-script-link">
-			<a onclick="return runHelpScriptWithBundleRoot(this)" href="../assets/editScript.scpt">Edit Script</a>
+			<a onclick="return runHelpScriptWithBundleRoot(this)" href="../assets-helpbook/editScript.scpt">Edit Script</a>
 			</div>
 			<div class="left-contents">
 			<div class="to-root">
@@ -31,10 +33,10 @@
 </div>
 <p class="sourceCode">
 <span class="userDefine">set_custom_title</span><span class="normal">(</span><span class="userDefine">a_title</span><span class="normal">)</span>
-<a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
-<img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
+<a href="../assets-helpbook/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
+<img src="../assets-helpbook/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p>新しく作るターミナルウィンドウに設定されるカスタムタイトルを設定します。値が設定されると、新たに開かれるターミナルウィンドウのカスタムタイトルとして設定されます。設定しなければ、ターミナルでの設定が引き継がれます。また、カスタムタイトル が設定されると、<a href="do.html">do</a>, <a href="do_with.html">do_with</a> はターミナルの参照が見つからないときは、同じ カスタムタイトル のターミナルウィンドウを探します。</p>
+<p>新しく作るターミナルウィンドウに設定されるカスタムタイトルを設定します。値が設定されると、新たに開かれるターミナルウィンドウのカスタムタイトルとして設定されます。設定しなければ、ターミナルでの設定が引き継がれます。カスタムタイトル が設定されると、<a href="do.html">do</a>, <a href="do_with.html">do_with</a> はttyデバイス名とタスタムタイトルの両方が一致したターミナルを探します。見つからない場合は、同じカスタムタイトルのターミナルウィンドウを探します。</p>
 <div class="subHeading">
 Parameters
 </div>

@@ -3,14 +3,11 @@ a:link {
 a:visited {
 	color: #999966  }
 a:active { color: #f66  }
-body, td { font-size: 12px; }
-body { color: black; background-color: white; margin: 0; padding: 0; }
-h1 { font-weight: bold; font-size: 250%; font-family: Times, serif; margin: 1ex 0 1.5ex; padding: 0 0 0.5ex; border-bottom: thick solid gray          }
-h2 { font-weight: bold; font-size: 130%; font-family: Osaka, "Lucida Grande", Arial, sans-serif  ; }
-h3 { font-weight: bold; font-size: 110%  ; }
+body, td { font-size: 10pt; }body {font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif; color: black; background-color: white; margin: 0; padding: 0; }
+h1 { font-weight: bold; font-size: 250%; font-family: Times, serif; margin: 0 0 1.5ex; padding: 1ex 0 0.5ex; border-bottom: thick solid gray          }
+h2 { font-weight: bold; font-size: 130%; font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Arial, sans-serif  ; }
+h3 { font-weight: bold; font-size: 110%  ; font-family: sans-serif; }
 h4   {	margin-left: 1em }
-
-
 p     {	line-height: 160%;
 	margin-right: 0.5em;
 	margin-left: 1.5em }
@@ -46,7 +43,7 @@ table { margin: 0; padding: 0; }
 .widespace {
 	margin-bottom: 1ex  }
 .terminalCommand     {	color: white;
-	font-family: Osaka, Courier, Monaco, "Courier New", monospace;
+	font-family: Courier, Monaco, "Courier New", monospace;
 	background-color: black;
 	margin: 1ex 2em;
 	padding: 8px 10px;
