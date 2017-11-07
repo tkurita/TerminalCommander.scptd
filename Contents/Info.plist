@@ -5,9 +5,9 @@
 	<key>CFBundleGetInfoString</key>
 	<string>3.0.3 copyright 2003-2016, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
-	<string>TerminalCommander Help</string>
+	<string>TerminalCommanderHelp</string>
 	<key>CFBundleHelpBookName</key>
-	<string>TerminalCommander Help</string>
+	<string>net.script-factory.TerminalCommander.help</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.script-factory.TerminalCommander</string>
 	<key>CFBundleShortVersionString</key>
