@@ -8,6 +8,8 @@
 	<string>TerminalCommanderHelp</string>
 	<key>CFBundleHelpBookName</key>
 	<string>net.script-factory.TerminalCommander.help</string>
+	<key>CFBundleIconFile</key>
+	<string>applet</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.script-factory.TerminalCommander</string>
 	<key>CFBundleShortVersionString</key>
