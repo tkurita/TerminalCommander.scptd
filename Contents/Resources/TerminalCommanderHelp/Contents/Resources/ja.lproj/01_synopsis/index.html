@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <!-- InstanceBegin template="../../../../../_Templates/helpbook-page-with-applescript.dwt" -->
+
+    <head>
+      <title>Synopsis</title>
+      <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+      <meta name="keywords" content="AppleScript, Terminal, TerminalCommander" />
+      
+      <meta name="description" content="working directory やカスタムタイトルでターミナル探してコマンドを実行したり、コマンドの終了を待ったり、ターミナル.app の高度な制御を支援します。" />      
+      
+      <!-- #BeginHeadLocked "" -->
+        <link href="assets/helpbook-default.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="assets/helpbook-navibar.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="assets/AppleScript-2016.css" type="text/css" rel="stylesheet" media="all" />
+        <script type="text/javascript" src="assets/navibar-jump.js"></script>
+        <link id="helpviewer-handler-helper" href="assets/helpviewer-handler-helper.scpt" />
+        <script type="text/javascript" src="assets/helpviewer-handler-enable.js"></script>
+      <!-- #EndHeadLocked -->
+      <link id="HelpBookRoot" href="../" />
+      <csimport user="../../../_Components/sample-code.html" occur="5">
+        <link href="assets/AppleScript-2016.css" rel="stylesheet" type="text/css" media="all" />
+      </csimport>
+      <csimport user="../../../_Components/cwd-tty.html" occur="77">
+        <link rel="stylesheet" href="assets/source-highlight.css" type="text/css" />
+      </csimport>
+    </head>
+
+    <body>
+      <!-- InstanceBeginEditable name="navi-bar" --><div id="navi-bar"><span class="navibar-item"><a href="../index.html">TerminalCommander Help</a></span><span class="navibar-item">Synopsis</span><select onchange="navibarJump(this)"><option value="">§</option>
+    <option value="#what">What ?</option>
+    <option value="#basic_usage">Basic Usage</option>
+    <option value="#find-by-wd">Finding a Terminal by a Woking Directory</option></select></div>
+<div class="prev-next-item"><a href="../02_reference/index.html"><span class="navibar-next">TerminalCommander Reference </span></a></div><!-- InstanceEndEditable -->
+      <div id="contents">
+        <!-- InstanceBeginEditable name="Body" -->
+          <h1>Synopsis</h1>
+          <h2><a id="what" name="what"></a>What ?</h2>
+          <csobj csref="../../../_Components/abstruct_ja.html" occur="87" t="Component">
+            <p>ターミナルでのシェルコマンドの実行を支援する AppleScript ライブラリです。ターミナルでシェル コマンドは「do script」コマンドで簡単に実行できますが、次のような、より複雑な処理を行いたいときにこのライブラリは役に立ちます。</p>
+            <ul>
+              <li>シェルコマンドを実行するターミナルの設定を細かく制御したい。
+                <ul>
+                  <li>タイトル</li>
+                  <li>設定セット</li>
+                </ul>
+              </li>
+              <li>シェルコマンドの終了を待ってから、次の処理に移りたい。</li>
+              <li>ターミナルウィンドウを追跡して、同じターミナルで何度もシェルコマンドを実行したい。
+                <ul>
+                  <li>TerminalCommander のインスタンスは、開いたターミナルを記録しており、二回目以降の do, do_with の実行時に使用されます。</li>
+                  <li>ターミナルへの参照が記録されていない、もしくは見つからない場合、カスタムタイトルもしくは working directory でターミナルウインドウを探します。</li>
+                  <li>working directory でターミナルウインドウを探すには、付属の cwd-tty.sh をシェルの起動時に source コマンドで実行するように、.zprofile もしくは .bash_profile の設定が必要です。</li>
+                </ul>
+              </li>
+            </ul>
+          </csobj>
+          <h2><a id="basic_usage" name="basic_usage"></a>Basic Usage</h2>
+          
+          <p>TerminalCommander の基本的な使い方は、次のような手順になります。</p>
+          <ol>
+            <li>make もしくは、make_with_title, make_with_setting メソッドでインスタンスを生成します。</li>
+            <li>インスタンスに対して、タイトルもしくは設定セット名を設定します。</li>
+            <li>do もしくは do_with でシェルコマンドを実行します。</li>
+            <li>必要があれば、wait_termination でコマンドの終了を待ちます。</li>
+            <li>do もしくは do_with で再びコマンドを実行します。</li>
+          </ol>
+          
+          <csobj csref="../../../_Components/sample-code.html" occur="5" t="Component">
+            <div class="sourceCode" style="">
+              <div class="scriptButton" style="float:right;" >
+                <input type="button" value="Open this script : basic-sample" onclick="document.location = this.src" src="applescript://com.apple.scripteditor?action=new&amp;script=use%20TerminalCommander%20:%20script%20%22TerminalCommander%22%0D%0Dtell%20TerminalCommander%27s%20make_with_settings(%22Ocean%22)%0D%09set_custom_title(%22*%20Sample%20Terminal%20*%22)%0D%09set_execution_string(%22echo%20%27This%20is%20a%20new%20terminal.%27%22)%0D%09do(%22ls%20-l%22)%0D%09wait_termination(300)%0D%09do_with(%7Bcommand:%22echo%20%27You%20can%20execute%20command%20in%20the%20same%20terminal%27%22,%20with_activation:false%7D)%0Dend%20tell" /></div>
+              <div>
+                <span class="langKeyword">use</span> <span class="userDefine">TerminalCommander</span><span class="normal"> : </span><span class="className">script</span><span class="normal"> &quot;TerminalCommander&quot;</span></div>
+              <br />
+              <div>
+                <span class="langKeyword">tell</span> <span class="userDefine">TerminalCommander's</span> <span class="userDefine">make_with_settings</span><span class="normal">(&quot;Ocean&quot;)</span></div>
+              <div style="text-indent:4ex;">
+                <span class="userDefine">set_custom_title</span><span class="normal">(&quot;* Sample Terminal *&quot;)</span></div>
+              <div style="text-indent:4ex;">
+                <span class="userDefine">set_execution_string</span><span class="normal">(&quot;echo 'This is a new terminal.'&quot;)</span></div>
+              <div style="text-indent:4ex;">
+                <span class="userDefine">do</span><span class="normal">(&quot;ls -l&quot;)</span></div>
+              <div style="text-indent:4ex;">
+                <span class="userDefine">wait_termination</span><span class="normal">(300)</span></div>
+              <div style="text-indent:4ex;">
+                <span class="userDefine">do_with</span><span class="normal">({</span><span class="userDefine">command</span><span class="normal">:&quot;echo 'You can execute command in the same terminal'&quot;, </span><span class="userDefine">with_activation</span><span class="normal">:</span><span class="enumeratedValues">false</span><span class="normal">})</span></div>
+              <div>
+                <span class="langKeyword">end</span> <span class="langKeyword">tell</span></div>
+            </div>
+          </csobj>
+          <h2><a id="find-by-wd" name="find-by-wd"></a>Finding a Terminal by a Woking Directory</h2>
+          
+          <p>TerminalCommander は、以下のシェルスクリプトを~./bash_profile もしくは ~/.zprofile に追加すると、シェルの Working Directory でターミナルを見つけられるようになります。</p>
+          <p>このシェルスクリプトは、コマンドプロンプトが更新されるたびに、~/.cwd-tty ファイルにtty デバイス名とworking directory の対応を記録します。</p>
+          <p>TerminalCommander のバンドル内の納められています。以下のように、source コマンドで実行すると良いでしょう。</p>
+          
+          <p class="terminalCommand">source '~/Library/Scripts Libraries/TerminalComannder.scpt/Contents/Resources/cwd-tty.sh'</p>
+          <div class="sourceCode">
+            <csobj csref="../../../_Components/cwd-tty.html" occur="77" t="Component">
+              <pre><tt><span class="comment"># cwd-tty.sh</span>
+<span class="comment">#</span>
+<span class="comment"># script to mainten a correspondence table between ttyname and</span>
+<span class="comment"># working directory.</span>
+<span class="comment"># Insert following line into .zprofile or .bash_profile.</span>
+<span class="comment">#</span>
+<span class="comment">#   source path-to-dir/cwd-tty.sh</span>
+<span class="comment">#</span>
+
+<span class="comment"># 2.0 -- 2020-01-09</span>
+<span class="comment">#   * Added support of zsh</span>
+
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">[[</span><span class="normal"> </span><span class="variable">$TERM_PROGRAM</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="string">'Apple_Terminal'</span><span class="normal"> </span><span class="symbol">]]</span><span class="normal"> </span><span class="symbol">&amp;&amp;</span><span class="normal"> </span><span class="symbol">[[</span><span class="normal"> -z </span><span class="variable">$INSIDE_EMACS</span><span class="normal"> </span><span class="symbol">]];</span><span class="normal"> </span><span class="keyword">then</span>
+<span class="normal">  </span><span class="function">save_cwd()</span><span class="normal"> {</span>
+<span class="normal">    </span><span class="keyword">local</span><span class="normal"> </span><span class="variable">ttyname</span><span class="symbol">=</span><span class="normal">`tty`</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">[[</span><span class="normal"> </span><span class="symbol">!</span><span class="normal"> -e </span><span class="symbol">~/.</span><span class="normal">cwd-tty </span><span class="symbol">]];</span><span class="normal"> </span><span class="keyword">then</span>
+<span class="normal">      echo </span><span class="string">"$ttyname	$PWD"</span><span class="normal"> </span><span class="symbol">&gt;</span><span class="normal"> </span><span class="symbol">~/.</span><span class="normal">cwd-tty</span>
+<span class="normal">      </span><span class="keyword">return</span>
+<span class="normal">    </span><span class="keyword">fi</span>
+
+<span class="normal">    </span><span class="keyword">local</span><span class="normal"> </span><span class="variable">out</span><span class="symbol">=()</span>
+<span class="normal">    </span><span class="keyword">local</span><span class="normal"> </span><span class="variable">matched</span><span class="symbol">=</span><span class="number">0</span>
+<span class="normal">    </span><span class="keyword">local</span><span class="normal"> LINE</span>
+<span class="normal">    </span><span class="keyword">while</span><span class="normal"> </span><span class="keyword">read</span><span class="normal"> LINE </span><span class="symbol">;</span><span class="normal"> </span><span class="keyword">do</span>
+<span class="normal">      </span><span class="variable">newline</span><span class="symbol">=</span><span class="string">"${ttyname}	${PWD}"</span>
+<span class="normal">      </span><span class="keyword">case</span><span class="normal"> </span><span class="variable">$LINE</span><span class="normal"> </span><span class="keyword">in</span>
+<span class="normal">        </span><span class="variable">${newline}</span><span class="symbol">)</span>
+<span class="normal">          </span><span class="keyword">return</span><span class="symbol">;;</span>
+<span class="normal">        </span><span class="variable">${ttyname}</span><span class="string">"	"</span><span class="symbol">*)</span>
+<span class="normal">            out</span><span class="symbol">+=(</span><span class="string">"$newline"</span><span class="symbol">)</span>
+<span class="normal">            </span><span class="variable">matched</span><span class="symbol">=</span><span class="number">1</span><span class="symbol">;;</span>
+<span class="normal">        </span><span class="symbol">*)</span>
+<span class="normal">          out</span><span class="symbol">+=(</span><span class="string">"$LINE"</span><span class="symbol">);;</span>
+<span class="normal">      </span><span class="keyword">esac</span>
+<span class="normal">    </span><span class="keyword">done</span><span class="normal"> </span><span class="symbol">&lt;</span><span class="normal"> </span><span class="symbol">~/.</span><span class="normal">cwd-tty</span>
+
+<span class="normal">    </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">[[</span><span class="normal"> </span><span class="variable">$matched</span><span class="normal"> -eq </span><span class="number">0</span><span class="normal"> </span><span class="symbol">]];</span><span class="normal"> </span><span class="keyword">then</span>
+<span class="normal">      out</span><span class="symbol">+=(</span><span class="string">"$ttyname	$PWD"</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="keyword">fi</span>
+<span class="normal">    </span><span class="variable">IFS</span><span class="symbol">=</span><span class="normal">$</span><span class="string">'</span><span class="specialchar">\n</span><span class="string">'</span>
+<span class="normal">    echo </span><span class="string">"${out[*]}"</span><span class="normal"> </span><span class="symbol">&gt;</span><span class="normal"> </span><span class="symbol">~/.</span><span class="normal">cwd-tty</span>
+<span class="normal">    </span><span class="keyword">unset</span><span class="normal"> IFS</span>
+<span class="normal">  }</span>
+
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">[[</span><span class="normal"> -n </span><span class="variable">$ZSH_VERSION</span><span class="normal"> </span><span class="symbol">]];</span><span class="normal"> </span><span class="keyword">then</span>
+<span class="normal">    autoload add-zsh-hook</span>
+<span class="normal">    add-zsh-hook precmd save_cwd</span>
+<span class="normal">  </span><span class="keyword">else</span>
+<span class="normal">    </span><span class="variable">PROMPT_COMMAND</span><span class="symbol">=</span><span class="string">"save_cwd${PROMPT_COMMAND:+; $PROMPT_COMMAND}"</span>
+<span class="normal">  </span><span class="keyword">fi</span>
+<span class="keyword">fi</span>
+
+</tt></pre>
+            </csobj></div>
+            
+          <p>次のように、set_working_directory で目的の directory を設定すると、~/.cwd-tty ファイルを読み込んで、目的のディレクトリの tty デバイスを調べ、tty デバイスからターミナルを探します。</p>
+          <p>ターミナルが見つからない場合には、新しいターミナルを開きますが、do コマンドには set_working_directory で設定された場所に cd する動作は含まれていません。確実に指定した場所でコマンドを実行するには、set_execution_string で cd コマンドを設定してください。execution string は新しいターミナルで一番最初に実行されるコマンドです。</p>
+          <p>次のサンプルでは、３回シェルコマンドを実行しています。３回目のシェルコマンドの実行の際には１回目のターミナルと同じ working directory を指定しています。そのため、３回目のシェル コマンドは１回目のターミナルでコマンドが実行されることに注目してください。</p>
+          
+          <div class="sourceCode" style="">
+    <div class="scriptButton" style="float:right;" >
+        <input type="button" value="Open this script : find-by-cwd" onclick="document.location = this.src" src="applescript://com.apple.scripteditor?action=new&amp;script=use%20TerminalCommander%20:%20script%20%22TerminalCommander%22%0D%0Dtell%20(make%20TerminalCommander)%20--%20first%20terminal%0D%09do(%22cd%20/Users%22)%0Dend%20tell%0D%0Dtell%20(make%20TerminalCommander)%20--%20second%20terminal%0D%09do(%22echo%20%27second%20terminal%27%22)%0Dend%20tell%0D%0Ddelay%201%0D%0Dtell%20(make%20TerminalCommander)%0D%09set_working_directory(%22/Users%22)%0D%09set_execution_string(%22cd%20/Users%22)%20--%20executed%20when%20new%20terminal%20is%20opened.%0D%09do(%22echo%20%27Find%20a%20terminal%20by%20working%20directory.%27%22)%20--%20this%20command%20will%20be%20sent%20to%20the%20first%20terminal.%0Dend%20tell%0D%0D" />
+    </div>
+<div>
+<span class="langKeyword">use</span> <span class="userDefine">TerminalCommander</span><span class="normal"> : </span><span class="className">script</span><span class="normal"> &quot;TerminalCommander&quot;</span>
+</div>
+<br />
+<div>
+<span class="langKeyword">tell</span><span class="normal"> (</span><span class="commandName">make</span> <span class="userDefine">TerminalCommander</span><span class="normal">) </span><span class="comment">-- first terminal</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="userDefine">do</span><span class="normal">(&quot;cd /Users&quot;)</span>
+</div>
+<div>
+<span class="langKeyword">end</span> <span class="langKeyword">tell</span>
+</div>
+<br />
+<div>
+<span class="langKeyword">tell</span><span class="normal"> (</span><span class="commandName">make</span> <span class="userDefine">TerminalCommander</span><span class="normal">) </span><span class="comment">-- second terminal</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="userDefine">do</span><span class="normal">(&quot;echo 'second terminal'&quot;)</span>
+</div>
+<div>
+<span class="langKeyword">end</span> <span class="langKeyword">tell</span>
+</div>
+<br />
+<div>
+<span class="commandName">delay</span><span class="normal"> 1</span>
+</div>
+<br />
+<div>
+<span class="langKeyword">tell</span><span class="normal"> (</span><span class="commandName">make</span> <span class="userDefine">TerminalCommander</span><span class="normal">)</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="userDefine">set_working_directory</span><span class="normal">(&quot;/Users&quot;)</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="userDefine">set_execution_string</span><span class="normal">(&quot;cd /Users&quot;) </span><span class="comment">-- executed when new terminal is opened.</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="userDefine">do</span><span class="normal">(&quot;echo 'Find a terminal by working directory.'&quot;) </span><span class="comment">-- this command will be sent to the first terminal.</span>
+</div>
+<div>
+<span class="langKeyword">end</span> <span class="langKeyword">tell</span>
+</div>
+</div>
+        <!-- InstanceEndEditable --></div>
+      <!-- InstanceBeginEditable name="prev-next-item" --><div class="prev-next-item"><a href="../02_reference/index.html"><span class="navibar-next">TerminalCommander Reference </span></a></div><!-- InstanceEndEditable -->
+      <div class="footer">
+        <p>This page was last built on <csobj format="MedDate" h="10" region="0" t="DateTime" w="64">Sat, Feb 8, 2020</csobj> ; <csobj format="LongTime" h="10" region="0" t="DateTime" w="45">5:37:39 PM</csobj> . Thanks for checking it out!</p>
+      </div>
+    </body>
+
+  <!-- InstanceEnd -->
+
+</html>

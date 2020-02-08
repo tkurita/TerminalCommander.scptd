@@ -1,4 +1,6 @@
-# script to generate a correspondence table between ttyname and
+# cwd-tty.sh
+#
+# script to mainten a correspondence table between ttyname and
 # working directory.
 # Insert following line into .zprofile or .bash_profile.
 #

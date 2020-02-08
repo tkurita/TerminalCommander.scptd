@@ -11,7 +11,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>net.script-factory.TerminalCommander</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0.4</string>
+	<string>3.0.5b</string>
 	<key>CFBundleVersion</key>
 	<string>26</string>
 	<key>NSHumanReadableCopyright</key>
@@ -23,7 +23,7 @@
 		<key>bundleDividerCollapsed</key>
 		<false/>
 		<key>bundlePositionOfDivider</key>
-		<real>757</real>
+		<real>750.5</real>
 		<key>dividerCollapsed</key>
 		<false/>
 		<key>eventLogLevel</key>
