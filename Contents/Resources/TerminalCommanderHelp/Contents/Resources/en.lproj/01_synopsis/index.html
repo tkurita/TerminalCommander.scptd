@@ -39,21 +39,16 @@
         <!-- InstanceBeginEditable name="Body" -->
           <h1>Synopsis</h1>
           <h2><a id="what" name="what"></a>What ?</h2>
-          <csobj csref="../../../_Components/abstruct_ja.html" occur="87" t="Component">
-            <p>ターミナルでのシェルコマンドの実行を支援する AppleScript ライブラリです。ターミナルでシェル コマンドは「do script」コマンドで簡単に実行できますが、次のような、より複雑な処理を行いたいときにこのライブラリは役に立ちます。</p>
+          <csobj csref="../../../_Components/abstruct_en.html" occur="41" t="Component">
+            <p>TerminalCommander is an AppleScript library to help excuting shell commnads in Terminal.app. It is easy simple excution of shell commands in Terminal.app by using &quot;do script&quot; command. This libary provides following flexibily to control Terminal.app.</p>
             <ul>
-              <li>シェルコマンドを実行するターミナルの設定を細かく制御したい。
+              <li>Customizing appearence of terminal to execute shell commands, for example, changing the terminal title and the settings set.</li>
+              <li>Send next command after completion of previous command. </li>
+              <li>By following a terminal window, Sending a command to same terminal window.
                 <ul>
-                  <li>タイトル</li>
-                  <li>設定セット</li>
-                </ul>
-              </li>
-              <li>シェルコマンドの終了を待ってから、次の処理に移りたい。</li>
-              <li>ターミナルウィンドウを追跡して、同じターミナルで何度もシェルコマンドを実行したい。
-                <ul>
-                  <li>TerminalCommander のインスタンスは、開いたターミナルを記録しており、二回目以降の do, do_with の実行時に使用されます。</li>
-                  <li>ターミナルへの参照が記録されていない、もしくは見つからない場合、カスタムタイトルもしくは working directory でターミナルウインドウを探します。</li>
-                  <li>working directory でターミナルウインドウを探すには、付属の cwd-tty.sh をシェルの起動時に source コマンドで実行するように、.zprofile もしくは .bash_profile の設定が必要です。</li>
+                  <li>An instance of TerminalCommander remenber the terminal send a commnd. From next time, the terminal window is used by &quot;do&quot; and &quot;do_with&quot; command.</li>
+                  <li>If the terminal window is lost, TerminalCommander can find a terminal window by specified custom title or specified working directory.</li>
+                  <li>Setting of cwd-tty.sh is required to find a terminal window by specified woking directory. Execute cwd-tty.sh by source command in .zprofile or .bash_profile.</li>
                 </ul>
               </li>
             </ul>
@@ -211,7 +206,7 @@
         <!-- InstanceEndEditable --></div>
       <!-- InstanceBeginEditable name="prev-next-item" --><div class="prev-next-item"><a href="../02_reference/index.html"><span class="navibar-next">TerminalCommander Reference </span></a></div><!-- InstanceEndEditable -->
       <div class="footer">
-        <p>This page was last built on <csobj format="MedDate" h="10" region="0" t="DateTime" w="64">Sat, Feb 8, 2020</csobj> ; <csobj format="LongTime" h="10" region="0" t="DateTime" w="45">5:37:39 PM</csobj> . Thanks for checking it out!</p>
+        <p>This page was last built on <csobj format="MedDate" h="10" region="0" t="DateTime" w="74">Wed, Feb 12, 2020</csobj> ; <csobj format="LongTime" h="10" region="0" t="DateTime" w="50">10:38:21 PM</csobj> . Thanks for checking it out!</p>
       </div>
     </body>
 

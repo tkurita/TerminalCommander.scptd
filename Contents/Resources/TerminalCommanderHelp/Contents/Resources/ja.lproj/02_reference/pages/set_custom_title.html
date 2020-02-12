@@ -36,11 +36,13 @@
 <a href="../assets-helpbook/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
 <img src="../assets-helpbook/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p>set a custom title for new terminal window.</p>
+<p>新しく作るターミナルウィンドウに設定されるカスタムタイトルを設定します。</p>
 
 
-<p>If custom title is set, <a href="do.html">do</a> and <a href="do_with.html">do_with</a> search for a terminal of which title and tty divice are matched with values in the instance.If indended terminal is not found, custom title is used to find a terminal.</p>
-<p>In the case without custom title setting, window title follows settings of Terminal.app.</p>
+
+<p>値が設定されると、新たに開かれるターミナルウィンドウのカスタムタイトルとして設定されます。設定しなければ、ターミナルでの設定が引き継がれます。</p>
+<p>カスタムタイトル が設定されると、<a href="do.html">do</a>, <a href="do_with.html">do_with</a> はttyデバイス名とカスタムタイトルの両方が一致したターミナルを探します。見つからない場合は、同じカスタムタイトルのターミナルウィンドウを探します。</p>
+
 <div class="subHeading">
 Parameters
 </div>
