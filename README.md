@@ -12,6 +12,9 @@ This libary provides following flexibily to control Terminal.app.
   * Setting of cwd-tty.sh is required to find a terminal window by specified woking directory. Execute cwd-tty.sh by source command in .zprofile or .bash_profile.
 
 ## Usage
+English :
+* https://www.script-factory.net/XModules/TerminalCommander/en/index.html
+
 Japanese :
 * https://www.script-factory.net/XModules/TerminalCommander/index.html
 
