@@ -13,7 +13,7 @@
 	<key>CFBundleName</key>
 	<string>TerminalCommander</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0.6b</string>
+	<string>3.0.6</string>
 	<key>CFBundleVersion</key>
 	<string>28</string>
 	<key>NSHumanReadableCopyright</key>
@@ -27,7 +27,7 @@
 		<key>bundlePositionOfDivider</key>
 		<real>735</real>
 		<key>dividerCollapsed</key>
-		<true/>
+		<false/>
 		<key>eventLogLevel</key>
 		<integer>2</integer>
 		<key>name</key>
